@@ -2,21 +2,30 @@ import './App.css';
 // eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import Homepage from './components/Homepage.jsx';
+import TeacherDashboard from './components/teachers/TeacherDashboard.jsx';
+
 // const sampleData = require('./components/sampledata.js');
 const please = require('./requests.js');
 
 function App() {
   const [students, setStudents] = useState([]);
   const [page, setPage] = useState('homepage');
+  const [assignments, setAssignments] = useState([]);
   // options: homepage, teacher-dashboard, reports, assignment-builder, student-dashboard, student-assignment
 
+  // get student names and info
   useEffect(() => {
     please.getStudents()
-    .then(data => {
-      console.log(students);
-      setStudents(data.data);
-    })
-  }, ['do not repeat'])
+    .then(data => setStudents(data.data))
+    .catch(error => console.log(error));
+  }, [])
+
+  // get assignments
+  // useEffect(() => {
+  //   please.teacherGetAssignment()
+  //   .then(data => setAssignments(data.data))
+  //   .catch(error => console.log(error));
+  // }, [])
 
 
   return (
@@ -31,9 +40,7 @@ function App() {
       </div>
     }
     {page === 'teacher-dashboard' &&
-      <div>
-        Teacher Dashboard
-      </div>
+      <TeacherDashboard setPage={setPage} assignments={assignments} />
     }
     {page === 'reports' &&
       <div>

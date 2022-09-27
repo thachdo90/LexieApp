@@ -1,4 +1,5 @@
-import HomeButton from './HomeButton.jsx';
+import TeacherDashboard from './teachers/TeacherDashboard.jsx';
+
 const Homepage = ({ students, setPage }) => {
   return (
     <div>
@@ -6,7 +7,6 @@ const Homepage = ({ students, setPage }) => {
       {students.map(student => {
         return <button key={student._id}>{student.name}</button>
       })}
-      <HomeButton setPage={setPage} />
     </div>
   )
 }

@@ -3,11 +3,10 @@ const basePath = 'http://localhost:4000';
 
 module.exports = {
   getStudents: () => {
-    console.log('BASE PATH IS', basePath);
     return axios({
       url: '/students',
       method: 'get',
-      baseURL: 'http://localhost:4000'
+      baseURL: basePath
     })
   },
 

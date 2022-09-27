@@ -28,7 +28,7 @@ module.exports = {
     })
   },
 
-  addAssignment: (body) => {
+  teacherAddAssignment: (body) => {
     return axios({
       url: '/teachers/assignments',
       method: 'post',

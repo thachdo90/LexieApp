@@ -1,7 +1,8 @@
 import HomeButton from '../HomeButton.jsx';
-import { Button, TextField, Box, Container, Grid, Paper } from '@mui/material';
+import { Button, TextField, Box, Container, Grid, Paper, Input } from '@mui/material';
 import React, { useState } from 'react';
 
+const please = require('../../requests.js')
 const generateGlossary = require('./glossary.js');
 
 const AssignmentBuilder = ({ setPage }) => {
@@ -9,7 +10,21 @@ const AssignmentBuilder = ({ setPage }) => {
   const [glossary, setGlossary] = useState([]);
 
   const handleSubmit = () => {
-    setPage('teacher-dashboard');
+    // do some form validation first
+    let title = document.getElementById('assignment-title').value;
+    let text = document.getElementById('text-field').value;
+    if (title === '' || glossary.length === 0 || text === '') {
+      alert('Your assignment is incomplete!')
+    } else {
+      please.teacherAddAssignment({
+          title: title,
+          glossary: glossary
+        })
+      .then(() => setPage('teacher-dashboard'))
+      .catch(error => console.log(error))
+    }
+
+
   }
 
   const populateGlossary = async () => {
@@ -22,6 +37,10 @@ const AssignmentBuilder = ({ setPage }) => {
   return (
     <>
       <h1>Assignment Builder</h1>
+      <Input
+        placeholder="Title of Assignment"
+        required
+        id="assignment-title"/>
       <Grid container>
         <Grid item style={{width: 500, height: 1000}}>
           <TextField

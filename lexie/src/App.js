@@ -3,6 +3,7 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import Homepage from './components/Homepage.jsx';
 import TeacherDashboard from './components/teachers/TeacherDashboard.jsx';
+import AssignmentBuilder from './components/teachers/AssignmentBuilder.jsx';
 
 // const sampleData = require('./components/sampledata.js');
 const please = require('./requests.js');
@@ -48,9 +49,7 @@ function App() {
       </div>
     }
     {page === 'assignment-builder' &&
-      <div>
-        Assignment Builder
-      </div>
+      <AssignmentBuilder setPage={setPage} />
     }
     {page === 'student-dashboard' &&
       <div>

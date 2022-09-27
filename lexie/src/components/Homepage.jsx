@@ -1,5 +1,3 @@
-import TeacherDashboard from './teachers/TeacherDashboard.jsx';
-
 const Homepage = ({ students, setPage }) => {
   return (
     <div>

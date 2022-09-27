@@ -11,6 +11,7 @@ const please = require('./requests.js');
 function App() {
   const [students, setStudents] = useState([]);
   const [page, setPage] = useState('homepage');
+  // eslint-disable-next-line
   const [assignments, setAssignments] = useState([]);
   // options: homepage, teacher-dashboard, reports, assignment-builder, student-dashboard, student-assignment
 

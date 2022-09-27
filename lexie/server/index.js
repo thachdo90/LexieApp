@@ -9,6 +9,7 @@ const PORT = 4000;
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
+// create different route for students and teachers
 app.route('/assignments')
   .get(getAssignment)
   .post(addAssignment)

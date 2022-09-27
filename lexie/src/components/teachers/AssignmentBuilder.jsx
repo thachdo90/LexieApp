@@ -1,4 +1,5 @@
 import HomeButton from '../HomeButton.jsx';
+import { Button } from '@mui/material';
 
 const AssignmentBuilder = ({ setPage }) => {
   const handleSubmit = () => {
@@ -10,7 +11,12 @@ const AssignmentBuilder = ({ setPage }) => {
     <>
       <h1>Assignment Builder</h1>
       <HomeButton setPage={setPage} />
-      <button onClick={handleSubmit}>Publish Assignment</button>
+      <Button
+        onClick={handleSubmit}
+        variant='contained'
+        color='primary'>
+        Publish Assignment
+      </Button>
     </>
   )
 }

@@ -1,4 +1,5 @@
 import HomeButton from '../HomeButton.jsx';
+import { Button } from '@mui/material';
 
 const TeacherDashboard = ({ setPage, assignments }) => {
   return (
@@ -14,7 +15,11 @@ const TeacherDashboard = ({ setPage, assignments }) => {
       :
       <div>Try creating your first assignment!</div>
       }
-      <button onClick={() => setPage('assignment-builder')}>Create Assignment</button>
+      <Button
+        onClick={() => setPage('assignment-builder')}
+        variant='contained'
+        color='primary'>
+        Create Assignment</Button>
       <HomeButton setPage={setPage} />
     </>
   )

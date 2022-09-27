@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const { getStudents } = require('../database/controller.js')
+const { getStudents, updateStudents, getAssignment, addAssignment } = require('../database/controller.js')
 
 const app = express();
 const PORT = 4000;
@@ -9,17 +9,15 @@ const PORT = 4000;
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-//later: add lexie endpoint
-app.get('/assignments', (req, res) => {
-  res.send('here are your assignments')
-})
+app.get('/assignments', getAssignment);
 
-app.post('/assignments', (req, res) => {
-  console.log('message body', req.body);
-  res.sendStatus(201);
-})
+app.post('/assignments', addAssignment);
 
-app.get('/students', getStudents)
+app.route('/students')
+  .get(getStudents)
+  .put(updateStudents)
+
+// adding students is out of scope for the current phase of this project, we'll stick with the 4 manually created students
 
 app.listen(PORT, () => {
   console.log(`server listening on port http://localhost:${PORT}`)

@@ -23,6 +23,7 @@ const submittedWorkSchema = mongoose.Schema({
     type: String,
     default: 'Not yet completed'
   },
+  glossary: Array,
   completed: Boolean
 })
 

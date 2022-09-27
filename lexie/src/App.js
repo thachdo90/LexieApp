@@ -5,6 +5,7 @@ import Homepage from './components/Homepage.jsx';
 import TeacherDashboard from './components/teachers/TeacherDashboard.jsx';
 import AssignmentBuilder from './components/teachers/AssignmentBuilder.jsx';
 import StudentDashboard from './components/students/StudentDashboard.jsx';
+import StudentAssignment from './components/students/StudentAssignment.jsx'
 
 // const sampleData = require('./components/sampledata.js');
 const please = require('./requests.js');
@@ -14,6 +15,7 @@ function App() {
   const [page, setPage] = useState('homepage');
   const [assignments, setAssignments] = useState([]);
   const [user, setUser] = useState('');
+  const [currentAssignment, setCurrentAssignment] = useState('');
 
   // get student names and info
   useEffect(() => {
@@ -62,12 +64,15 @@ function App() {
         setPage={setPage}
         student={students.filter(student => student._id === user)[0]}
         assignments={assignments}
+        setCurrentAssignment={setCurrentAssignment}
       />
     }
     {page === 'student-assignment' &&
-      <div>
-        Student Assignment
-      </div>
+      <StudentAssignment
+        setPage={setPage}
+        user={user}
+        currentAssignment={currentAssignment}
+      />
     }
     </>
   );

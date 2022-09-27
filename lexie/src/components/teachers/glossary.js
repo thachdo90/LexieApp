@@ -22,9 +22,9 @@ const generateGlossary = async (text) => {
       // comeback and fix cases where puncutations before or after the word returns 404
       // get rid of repetition
       // this currently takes very long to process a short passage, time should improve by filtering out common words, duplicates, even then, the
-      glossary.push({name: word, definition: data.data[0].meanings[0].definitions[0].definition})
+      glossary.push({word: word, definition: data.data[0].meanings[0].definitions[0].definition})
     } catch (err) {
-      glossary.push({name: word, definition: null})
+      glossary.push({word: word, definition: null})
     }
   }
   return glossary;

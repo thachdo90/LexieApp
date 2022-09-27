@@ -1,9 +1,9 @@
 import HomeButton from '../HomeButton.jsx';
-import { Button, Card, Grid, CardMedia, CardContent } from '@mui/material';
+import { Card, Grid, CardMedia, CardContent } from '@mui/material';
 
 const randomImg = require('../../assets/randomImg.js')
 
-const StudentDashboard = ({ student, setPage, assignments }) => {
+const StudentDashboard = ({ student, setPage, assignments, setCurrentAssignment }) => {
   return (
     <>
       <h1>
@@ -19,8 +19,13 @@ const StudentDashboard = ({ student, setPage, assignments }) => {
       spacing='10'>
        { assignments.map(assignment => <Grid item>
           <Card
+            // make card respond to hover
             key={assignment._id}
-            raised={true}>
+            raised={true}
+            onClick={() => {
+              setPage('student-assignment')
+              setCurrentAssignment(assignment._id)
+            }}>
               <CardMedia
               // later: get a list view
                 component='img'

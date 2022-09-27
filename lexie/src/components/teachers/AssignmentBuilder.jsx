@@ -1,5 +1,5 @@
 import HomeButton from '../HomeButton.jsx';
-import { Button, TextField, Box, Container, Grid, Paper, Input } from '@mui/material';
+import { Button, TextField, Grid, Paper, Input } from '@mui/material';
 import React, { useState } from 'react';
 
 const please = require('../../requests.js')
@@ -21,6 +21,7 @@ const AssignmentBuilder = ({ setPage }) => {
           glossary: glossary
         })
       .then(() => setPage('teacher-dashboard'))
+      // get assignment to see newly added entry
       .catch(error => console.log(error))
     }
 
@@ -29,7 +30,6 @@ const AssignmentBuilder = ({ setPage }) => {
   const populateGlossary = async () => {
     let text = document.getElementById('text-field').value;
     let words = await generateGlossary(text);
-    console.log(words);
     setGlossary(words);
   }
 
@@ -63,11 +63,12 @@ const AssignmentBuilder = ({ setPage }) => {
               Generate Glossary
             </Button>
             <p>Students will be able to click and defined words in this list</p>
-            {glossary.map(word => word.definition ? <p>{word.name}: {word.definition}</p> : null)}
+            {glossary.map(word => word.definition ? <p>{word.word}: {word.definition}</p> : null)}
           </Paper>
         </Grid>
       </Grid>
       <Button
+        // later, make this disabled until all requirements are met
         onClick={handleSubmit}
         variant='contained'>
         Publish Assignment

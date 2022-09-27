@@ -64,7 +64,7 @@ module.exports = {
   studentGetAssignment: async (req, res) => {
     console.log('getting assignment for student view');
     try {
-      let result = await Assignment.findOne({_id: req.id})
+      let result = await Assignment.findOne({_id: req.query._id})
       res.send(result);
     } catch (err) {
       res.sendStatus(404)

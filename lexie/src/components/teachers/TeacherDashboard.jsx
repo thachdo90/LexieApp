@@ -1,19 +1,31 @@
 import HomeButton from '../HomeButton.jsx';
-import { Button, Card, Grid } from '@mui/material';
+import { Button, Card, Grid, CardMedia, CardContent } from '@mui/material';
+
+const readingImg = require('../../assets/reading.jpeg')
 
 const TeacherDashboard = ({ setPage, assignments }) => {
   return (
     <>
-      <div>
-        TeacherDashboard
-      </div>
+      <h1>
+        Teacher Dashboard
+      </h1>
       {assignments.length > 0
       ?
-      <Grid container>
+      <Grid
+      container
+      spacing='10'>
        { assignments.map(assignment => <Grid item>
           <Card
-            key={assignment._id}>
-            assignment.name
+            key={assignment._id}
+            raised={true}>
+              <CardMedia
+                component='img'
+                height='140'
+                image={readingImg}
+              />
+              <CardContent>
+                {assignment.title}
+              </CardContent>
           </Card>
         </Grid>)}
       </Grid>

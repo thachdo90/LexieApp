@@ -19,6 +19,7 @@ module.exports = {
     try {
       let result;
       if (Object.keys(req.query).length === 0) {
+        // when getting all assignments, maybe leave the glossary out to cut back on data being sent
         result = await Assignment.find({});
       } else {
         result = await Assignment.findOne({_id: req.query._id});

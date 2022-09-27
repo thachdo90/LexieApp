@@ -54,8 +54,15 @@ module.exports = {
       baseURL: basePath,
       params: {assignment_id: id}
     })
+  },
+
+  // DICTIONARY API
+  getDefinition: (word) => {
+    return axios({
+      url: `${word}`,
+      method: 'get',
+      baseURL: 'https://api.dictionaryapi.dev/api/v2/entries/en/'
+    })
   }
-
-
 
 }

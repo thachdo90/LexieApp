@@ -1,30 +1,32 @@
 const please = require('../../requests.js');
 
 // for testing purpose, delete after
-const generateGlossary = (text) => {
-  let words = text.split(' ');
-  let glossary = []
-
-  for (let word of words) {
-    glossary.push({name: word, definition: 'definition'})
-  }
-  return glossary;
-}
-
-// const generateGlossary = async (text) => {
+// const generateGlossary = (text) => {
 //   let words = text.split(' ');
 //   let glossary = []
 
 //   for (let word of words) {
-//     try {
-//       let definition = await please.getDefinition(word);
-//       glossary.push({name: word, definition: definition})
-//     } catch (err) {
-//       console.log(err)
-//     }
+//     glossary.push({name: word, definition: 'definition'})
 //   }
 //   return glossary;
 // }
+
+const generateGlossary = async (text) => {
+  let words = text.split(' ');
+  let glossary = []
+
+  for (let word of words) {
+    try {
+      let data = await please.getDefinition(word);
+      // for now, just grab the first definition
+      // console.log(data.data[0].meanings[0].definitions[0].definition);
+      glossary.push({name: word, definition: data.data[0].meanings[0].definitions[0].definition})
+    } catch (err) {
+      glossary.push({name: word, definition: null})
+    }
+  }
+  return glossary;
+}
 
 
 module.exports = generateGlossary;

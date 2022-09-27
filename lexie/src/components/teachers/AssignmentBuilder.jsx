@@ -1,5 +1,5 @@
 import HomeButton from '../HomeButton.jsx';
-import { Button, TextField, Box } from '@mui/material';
+import { Button, TextField, Box, Container, Grid, Paper } from '@mui/material';
 import React, { useState } from 'react';
 
 const generateGlossary = require('./glossary.js');
@@ -12,9 +12,9 @@ const AssignmentBuilder = ({ setPage }) => {
     setPage('teacher-dashboard');
   }
 
-  const populateGlossary = () => {
+  const populateGlossary = async () => {
     let text = document.getElementById('text-field').value;
-    let words = generateGlossary(text);
+    let words = await generateGlossary(text);
     console.log(words);
     setGlossary(words);
   }
@@ -22,18 +22,26 @@ const AssignmentBuilder = ({ setPage }) => {
   return (
     <>
       <h1>Assignment Builder</h1>
-      <HomeButton setPage={setPage} />
-      <TextField
-        fullWidth={true}
-        id='text-field'
-        placeholder='Paste the reading passage here'
-        minRows='200'
-        // multiline={true}
-        >
-      </TextField>
-      <Box>
-        {glossary.map(word => <p>{word.name}: {word.definition}</p>)}
-      </Box>
+      <Grid container>
+        <Grid item style={{width: 500, height: 1000}}>
+          <TextField
+            fullWidth={true}
+            id='text-field'
+            placeholder='Paste the reading passage here'
+            minRows='27'
+            multiline={true}
+            >
+          </TextField>
+        </Grid>
+        <Grid item style={{width: 500, height: 1000}}>
+          <Paper
+          elevation='4'
+          style={{padding: '20px'}}>
+            <h1>Glossary</h1>
+            {glossary.map(word => <p>{word.name}: {word.definition}</p>)}
+          </Paper>
+        </Grid>
+      </Grid>
       <Button
         variant='contained'
         onClick={populateGlossary}
@@ -45,6 +53,7 @@ const AssignmentBuilder = ({ setPage }) => {
         variant='contained'>
         Publish Assignment
       </Button>
+      <HomeButton setPage={setPage} />
     </>
   )
 }

@@ -7,7 +7,6 @@ import AssignmentBuilder from './components/teachers/AssignmentBuilder.jsx';
 import StudentDashboard from './components/students/StudentDashboard.jsx';
 import StudentAssignment from './components/students/StudentAssignment.jsx'
 
-// const sampleData = require('./components/sampledata.js');
 const please = require('./requests.js');
 
 function App() {

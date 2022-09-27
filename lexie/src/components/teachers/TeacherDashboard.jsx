@@ -17,9 +17,10 @@ const TeacherDashboard = ({ setPage, assignments }) => {
         <Grid
         container
         spacing='10'>
-        { assignments.map(assignment => <Grid item>
+        { assignments.map(assignment => <Grid
+          item
+          key={assignment._id}>
             <Card
-              key={assignment._id}
               raised={true}>
                 <CardMedia
                 // later: get a list view

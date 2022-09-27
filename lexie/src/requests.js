@@ -15,7 +15,7 @@ module.exports = {
       url: '/students/assignments',
       method: 'get',
       baseURL: basePath,
-      params: {assignment_id: id}
+      params: {_id: id}
     })
   },
 

@@ -1,9 +1,9 @@
-const Homepage = ({ students }) => {
+const Homepage = ({ students, setPage }) => {
   return (
     <div>
-      <div>Teacher</div>
+      <button onClick={() => setPage('teacher-dashboard')}>Teacher</button>
       {students.map(student => {
-        return <div key={student._id}>{student.name}</div>
+        return <button key={student._id}>{student.name}</button>
       })}
     </div>
   )

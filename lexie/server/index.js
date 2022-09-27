@@ -1,23 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const { getStudents, teacherGetAssignment, teacherAddAssignment, teacherDeleteAssignment, studentSubmitWork, studentGetAssignment } = require('../database/controller.js')
+const { getStudents, teacherGetAssignment, teacherAddAssignment, teacherDeleteAssignment, studentSubmitWork, studentGetAssignment } = require('../database/controller.js');
+const cors = require('cors');
 
 const app = express();
 const PORT = 4000;
 
+// MIDDLEWARES
+app.use(cors());
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-// create different route for students and teachers
-// app.route('/assignments')
-//   .get(getAssignment)
-//   .post(addAssignment)
-
-// app.route('/students')
-//   .get(getStudents)
-//   .put(updateStudents)
-
+// ROUTES
 app.route('/students')
   .get(getStudents)
 

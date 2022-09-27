@@ -1,12 +1,13 @@
-import axios from 'axios';
+const axios = require('axios');
 const basePath = 'http://localhost:4000';
 
 module.exports = {
   getStudents: () => {
+    console.log('BASE PATH IS', basePath);
     return axios({
       url: '/students',
       method: 'get',
-      baseUrl: basePath
+      baseURL: 'http://localhost:4000'
     })
   },
 
@@ -14,7 +15,7 @@ module.exports = {
     return axios({
       url: '/students/assignments',
       method: 'get',
-      baseUrl: basePath,
+      baseURL: basePath,
       params: {assignment_id: id}
     })
   },
@@ -23,7 +24,7 @@ module.exports = {
     return axios({
       url: '/students/assignments',
       method: 'post',
-      baseUrl: basePath,
+      baseURL: basePath,
       data: body,
     })
   },
@@ -32,7 +33,7 @@ module.exports = {
     return axios({
       url: '/teachers/assignments',
       method: 'post',
-      baseUrl: basePath,
+      baseURL: basePath,
       data: body
     })
 
@@ -42,7 +43,7 @@ module.exports = {
     return axios({
       url: '/teachers/assignments',
       method: 'get',
-      baseUrl: basePath,
+      baseURL: basePath,
       params: {assignment_id: id}
     })
   },
@@ -51,7 +52,7 @@ module.exports = {
     return axios({
       url: '/teachers/assignments',
       method: 'delete',
-      baseUrl: basePath,
+      baseURL: basePath,
       params: {assignment_id: id}
     })
   }

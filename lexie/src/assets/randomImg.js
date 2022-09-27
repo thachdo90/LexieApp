@@ -1,8 +1,9 @@
 const readingImg = require('./reading.jpeg');
 const readingImg2 = require('./reading2.avif');
 const readingImg3 = require('./reading3.webp');
+const readingImg4 = require('./reading4.avif');
 
-let images = [readingImg, readingImg2, readingImg3];
+let images = [readingImg, readingImg2, readingImg3, readingImg4];
 
 let Node = (value) => {
   return {

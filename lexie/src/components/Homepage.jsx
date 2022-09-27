@@ -1,21 +1,27 @@
 import { Button, ButtonGroup } from '@mui/material';
 
-const Homepage = ({ students, setPage }) => {
+const Homepage = ({ students, setPage, setUser }) => {
   return (
     <div>
       <Button
-        onClick={() => setPage('teacher-dashboard')}
+        onClick={() => {
+          setUser('teacher');
+          setPage('teacher-dashboard');
+        }}
         variant="contained"
         color="primary">
         Teacher
       </Button>
-      {/* {students.map(student => {
-        return <button key={student._id}>{student.name}</button>
-      })} */}
       <ButtonGroup
         variant="contained"
         color="secondary">
-        {students.map(student => <Button key={student._id}>
+        {students.map(student => <Button
+        key={student._id}
+        student={student}
+        onClick={() => {
+          setUser(student._id)
+          setPage('student-dashboard')
+        }}>
           {student.name}
         </Button>)}
       </ButtonGroup>

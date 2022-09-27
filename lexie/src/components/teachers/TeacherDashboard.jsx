@@ -12,28 +12,32 @@ const TeacherDashboard = ({ setPage, assignments }) => {
       </h1>
       {assignments.length > 0
       ?
-      <Grid
-      container
-      spacing='10'>
-       { assignments.map(assignment => <Grid item>
-          <Card
-            key={assignment._id}
-            raised={true}>
-              <CardMedia
-                component='img'
-                style={{
-                  height: 140,
-                  width: 210
-                }}
-                // later: give teachers ability to add their own image
-                image={randomImg()}
-              />
-              <CardContent>
-                {assignment.title}
-              </CardContent>
-          </Card>
-        </Grid>)}
-      </Grid>
+      <>
+        <h3>Select a card below to see the report</h3>
+        <Grid
+        container
+        spacing='10'>
+        { assignments.map(assignment => <Grid item>
+            <Card
+              key={assignment._id}
+              raised={true}>
+                <CardMedia
+                // later: get a list view
+                  component='img'
+                  style={{
+                    height: 140,
+                    width: 210
+                  }}
+                  // later: give teachers ability to add their own image
+                  image={assignment.image || randomImg()}
+                />
+                <CardContent>
+                  {assignment.title}
+                </CardContent>
+            </Card>
+          </Grid>)}
+        </Grid>
+      </>
       :
       <div>Try creating your first assignment!</div>
       }

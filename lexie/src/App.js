@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Homepage from './components/Homepage.jsx';
 import TeacherDashboard from './components/teachers/TeacherDashboard.jsx';
 import AssignmentBuilder from './components/teachers/AssignmentBuilder.jsx';
+import StudentDashboard from './components/students/StudentDashboard.jsx';
 
 // const sampleData = require('./components/sampledata.js');
 const please = require('./requests.js');
@@ -11,9 +12,8 @@ const please = require('./requests.js');
 function App() {
   const [students, setStudents] = useState([]);
   const [page, setPage] = useState('homepage');
-  // eslint-disable-next-line
   const [assignments, setAssignments] = useState([]);
-  // options: homepage, teacher-dashboard, reports, assignment-builder, student-dashboard, student-assignment
+  const [user, setUser] = useState('');
 
   // get student names and info
   useEffect(() => {
@@ -38,7 +38,10 @@ function App() {
           Lexie
         </h1>
         <h2>Select your role to begin!</h2>
-        <Homepage students={students} setPage={setPage}/>
+        <Homepage
+          students={students}
+          setPage={setPage}
+          setUser={setUser}/>
       </div>
     }
     {page === 'teacher-dashboard' &&
@@ -55,9 +58,11 @@ function App() {
       <AssignmentBuilder setPage={setPage} />
     }
     {page === 'student-dashboard' &&
-      <div>
-        Student Dashboard
-      </div>
+      <StudentDashboard
+        setPage={setPage}
+        student={students.filter(student => student._id === user)[0]}
+        assignments={assignments}
+      />
     }
     {page === 'student-assignment' &&
       <div>

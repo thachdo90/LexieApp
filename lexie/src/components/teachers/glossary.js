@@ -19,7 +19,9 @@ const generateGlossary = async (text) => {
     try {
       let data = await please.getDefinition(word);
       // for now, just grab the first definition
-      // console.log(data.data[0].meanings[0].definitions[0].definition);
+      // comeback and fix cases where puncutations before or after the word returns 404
+      // get rid of repetition
+      // this currently takes very long to process a short passage, time should improve by filtering out common words, duplicates, even then, the
       glossary.push({name: word, definition: data.data[0].meanings[0].definitions[0].definition})
     } catch (err) {
       glossary.push({name: word, definition: null})

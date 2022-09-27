@@ -37,8 +37,9 @@ const AssignmentBuilder = ({ setPage }) => {
           <Paper
           elevation='4'
           style={{padding: '20px'}}>
-            <h1>Glossary</h1>
-            {glossary.map(word => <p>{word.name}: {word.definition}</p>)}
+            <h1>Full Glossary</h1>
+            <p>Students will be able to click and defined words in this list</p>
+            {glossary.map(word => word.definition ? <p>{word.name}: {word.definition}</p> : null)}
           </Paper>
         </Grid>
       </Grid>

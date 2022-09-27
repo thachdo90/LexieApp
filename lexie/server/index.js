@@ -9,9 +9,9 @@ const PORT = 4000;
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 
-app.get('/assignments', getAssignment);
-
-app.post('/assignments', addAssignment);
+app.route('/assignments')
+  .get(getAssignment)
+  .post(addAssignment)
 
 app.route('/students')
   .get(getStudents)

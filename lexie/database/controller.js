@@ -3,11 +3,21 @@ const db = require('./index');
 
 module.exports = {
   getAssignment: async (req, res) => {
-
+    try {
+      let result = await Assignment.findOne({_id: req._id});
+      res.send(result);
+    } catch (err) {
+      res.send(404);
+    }
   },
 
   addAssignment: async (req, res) => {
-
+    try {
+      await Assignment.create(req.body);
+      res.sendStatus(201);
+    } catch (err) {
+      res.sendStatus(400);
+    }
   },
 
   getStudents: async (req, res) => {

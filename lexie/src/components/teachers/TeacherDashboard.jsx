@@ -1,5 +1,5 @@
 import HomeButton from '../HomeButton.jsx';
-import { Button } from '@mui/material';
+import { Button, Card, Grid } from '@mui/material';
 
 const TeacherDashboard = ({ setPage, assignments }) => {
   return (
@@ -9,9 +9,14 @@ const TeacherDashboard = ({ setPage, assignments }) => {
       </div>
       {assignments.length > 0
       ?
-      assignments.map(assignment => <div key={assignment._id}>
-        assignment.name
-      </div>)
+      <Grid container>
+       { assignments.map(assignment => <Grid item>
+          <Card
+            key={assignment._id}>
+            assignment.name
+          </Card>
+        </Grid>)}
+      </Grid>
       :
       <div>Try creating your first assignment!</div>
       }

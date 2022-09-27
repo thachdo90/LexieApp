@@ -17,7 +17,12 @@ module.exports = {
   // METHODS FOR TEACHERS
   teacherGetAssignment: async (req, res) => {
     try {
-      let result = await Assignment.findOne({_id: req._id});
+      let result;
+      if (Object.keys(req.query).length === 0) {
+        result = await Assignment.find({});
+      } else {
+        result = await Assignment.findOne({_id: req.query._id});
+      }
       res.send(result);
     } catch (err) {
       res.send(404);

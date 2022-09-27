@@ -23,11 +23,11 @@ function App() {
   }, [])
 
   // get assignments
-  // useEffect(() => {
-  //   please.teacherGetAssignment()
-  //   .then(data => setAssignments(data.data))
-  //   .catch(error => console.log(error));
-  // }, [])
+  useEffect(() => {
+    please.teacherGetAssignment()
+    .then(data => setAssignments(data.data))
+    .catch(error => console.log(error));
+  }, [])
 
 
   return (
@@ -42,7 +42,9 @@ function App() {
       </div>
     }
     {page === 'teacher-dashboard' &&
-      <TeacherDashboard setPage={setPage} assignments={assignments} />
+      <TeacherDashboard
+      setPage={setPage}
+      assignments={assignments} />
     }
     {page === 'reports' &&
       <div>

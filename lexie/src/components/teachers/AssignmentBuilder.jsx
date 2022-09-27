@@ -24,7 +24,6 @@ const AssignmentBuilder = ({ setPage }) => {
       .catch(error => console.log(error))
     }
 
-
   }
 
   const populateGlossary = async () => {
@@ -57,17 +56,17 @@ const AssignmentBuilder = ({ setPage }) => {
           elevation='4'
           style={{padding: '20px'}}>
             <h1>Full Glossary</h1>
+            <Button
+              variant='contained'
+              onClick={populateGlossary}
+              >
+              Generate Glossary
+            </Button>
             <p>Students will be able to click and defined words in this list</p>
             {glossary.map(word => word.definition ? <p>{word.name}: {word.definition}</p> : null)}
           </Paper>
         </Grid>
       </Grid>
-      <Button
-        variant='contained'
-        onClick={populateGlossary}
-        >
-        Generate Glossary
-      </Button>
       <Button
         onClick={handleSubmit}
         variant='contained'>

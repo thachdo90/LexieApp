@@ -1,7 +1,8 @@
 import HomeButton from '../HomeButton.jsx';
 import { Button, Card, Grid, CardMedia, CardContent } from '@mui/material';
 
-const readingImg = require('../../assets/reading.jpeg')
+const randomImg = require('../../assets/randomImg.js')
+
 
 const TeacherDashboard = ({ setPage, assignments }) => {
   return (
@@ -20,8 +21,12 @@ const TeacherDashboard = ({ setPage, assignments }) => {
             raised={true}>
               <CardMedia
                 component='img'
-                height='140'
-                image={readingImg}
+                style={{
+                  height: 140,
+                  width: 210
+                }}
+                // later: give teachers ability to add their own image
+                image={randomImg()}
               />
               <CardContent>
                 {assignment.title}

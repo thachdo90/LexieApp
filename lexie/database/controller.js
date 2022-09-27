@@ -2,6 +2,7 @@ const { Assignment, Student } = require('./model.js');
 const db = require('./index');
 
 module.exports = {
+  // check data shape
   getAssignment: async (req, res) => {
     try {
       let result = await Assignment.findOne({_id: req._id});
@@ -11,6 +12,7 @@ module.exports = {
     }
   },
 
+  // might need to transform data before returning
   addAssignment: async (req, res) => {
     try {
       await Assignment.create(req.body);

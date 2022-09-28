@@ -1,4 +1,3 @@
-import HomeButton from '../HomeButton.jsx';
 import { Button, TextField, Grid, Paper, Input } from '@mui/material';
 import React, { useState } from 'react';
 
@@ -72,10 +71,6 @@ const AssignmentBuilder = ({ setPage, user }) => {
         variant='contained'>
         Publish Assignment
       </Button>
-      <HomeButton
-        setPage={setPage}
-        user={user}
-      />
     </>
   )
 }

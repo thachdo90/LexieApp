@@ -10,9 +10,8 @@ const HomeButton = ({ user, setPage }) => {
     <Fab
     onClick={() => setPage(home)}
     variant='contained'
-    color='primary'
-    size='large'>
-      <Home fontSize='large'/>
+    color='primary'>
+      <Home />
     </Fab>
   )
 }

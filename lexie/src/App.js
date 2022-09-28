@@ -6,6 +6,8 @@ import TeacherDashboard from './components/teachers/TeacherDashboard.jsx';
 import AssignmentBuilder from './components/teachers/AssignmentBuilder.jsx';
 import StudentDashboard from './components/students/StudentDashboard.jsx';
 import StudentAssignment from './components/students/StudentAssignment.jsx'
+import LogoutButton from './components/LogoutButton.jsx'
+import HomeButton from './components/HomeButton.jsx';
 
 const please = require('./requests.js');
 
@@ -33,6 +35,15 @@ function App() {
 
   return (
     <>
+    {page !== 'login' &&
+      <LogoutButton
+      setUser={setUser}
+      setPage={setPage}
+      />
+    }
+    {!['login', 'teacher-dashboard', 'student-dashboard'].includes(page) &&
+      <HomeButton user={user} setPage={setPage} />
+    }
     {page === 'login' &&
       <div className="App">
         <h1>

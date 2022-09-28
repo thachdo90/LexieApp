@@ -12,9 +12,8 @@ const LogoutButton = ({ setUser, setPage }) => {
       setPage('login');
     }}
     variant='contained'
-    color='primary'
-    size='large'>
-      <Logout fontSize='large' />
+    color='primary'>
+      <Logout />
     </Fab>
   )
 }

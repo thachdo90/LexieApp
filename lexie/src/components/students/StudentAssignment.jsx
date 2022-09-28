@@ -1,5 +1,4 @@
 import './StudentAssignment.css';
-import HomeButton from '../HomeButton.jsx';
 import { Button, TextField, Grid, Paper, Input } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
@@ -51,10 +50,6 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
 
   return(
     <>
-      <HomeButton
-        setPage={setPage}
-        user={user}
-      />
       <Button
         variant='contained'
         onClick={submitWork}>

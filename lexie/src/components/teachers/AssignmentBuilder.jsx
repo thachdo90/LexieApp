@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 const please = require('../../requests.js')
 const generateGlossary = require('./glossary.js');
 
-const AssignmentBuilder = ({ setPage }) => {
+const AssignmentBuilder = ({ setPage, user }) => {
 
   const [glossary, setGlossary] = useState([]);
 
@@ -72,7 +72,10 @@ const AssignmentBuilder = ({ setPage }) => {
         variant='contained'>
         Publish Assignment
       </Button>
-      <HomeButton setPage={setPage} />
+      <HomeButton
+        setPage={setPage}
+        user={user}
+      />
     </>
   )
 }

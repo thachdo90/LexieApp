@@ -3,14 +3,16 @@ import { Home } from '@mui/icons-material'
 
 // have homepage go to the dashboard of the current user
 // use context provide to get setPage and user anywhere
-const HomeButton = ({ setPage }) => {
+const HomeButton = ({ user, setPage }) => {
+  let home = user === 'teacher' ? 'teacher-dashboard' : 'student-dashboard';
+
   return (
     <Fab
-    children={<Home />}
-    onClick={() => setPage('homepage')}
+    onClick={() => setPage(home)}
     variant='contained'
     color='primary'
     size='large'>
+      <Home fontSize='large'/>
     </Fab>
   )
 }

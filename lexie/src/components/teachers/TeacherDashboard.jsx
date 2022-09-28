@@ -1,4 +1,3 @@
-import HomeButton from '../HomeButton.jsx';
 import { Button, Card, Grid, CardMedia, CardContent } from '@mui/material';
 
 const randomImg = require('../../assets/randomImg.js')
@@ -47,7 +46,6 @@ const TeacherDashboard = ({ setPage, assignments }) => {
         variant='contained'
         color='primary'>
         Create Assignment</Button>
-      <HomeButton setPage={setPage} />
     </>
   )
 }

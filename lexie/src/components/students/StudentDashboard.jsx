@@ -1,4 +1,3 @@
-import HomeButton from '../HomeButton.jsx';
 import { Card, Grid, CardMedia, CardContent } from '@mui/material';
 
 const randomImg = require('../../assets/randomImg.js')
@@ -44,7 +43,6 @@ const StudentDashboard = ({ student, setPage, assignments, setCurrentAssignment 
       :
       <div>It looks like you have no assignments!</div>
       }
-      <HomeButton setPage={setPage} />
     </>
   )
 }

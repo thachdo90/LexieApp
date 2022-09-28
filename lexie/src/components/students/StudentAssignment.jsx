@@ -27,14 +27,37 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
   }
 
   const submitWork = () => {
+    let glossary = studentGlossary.map(word => word.word)
+    let summary = document.getElementById('summary').value;
+    if (summary.length < 100) {
+      alert('Please summarize the passage with at least 100 characters!')
+    } else {
+      let studentWork = {
+      student_id: user,
+      work: {
+        assignment_id: currentAssignment,
+        summary: summary,
+        glossary: glossary,
+        completed: true
+        }
+      }
+      please.submitWork(studentWork)
+      .then(() => setPage('student-dashboard'))
+      .catch(error => console.log(error))
+      // perform follow up get requests to update status of this student's assignment
+    }
 
   }
 
   return(
     <>
-      <HomeButton setPage={setPage}/>
+      <HomeButton
+        setPage={setPage}
+        user={user}
+      />
       <Button
-        variant='contained'>
+        variant='contained'
+        onClick={submitWork}>
         Submit
       </Button>
       {Object.keys(assignmentIP).length > 0
@@ -64,8 +87,8 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
         </Grid>
         <TextField
         fullWidth={true}
-        id='text-field'
-        placeholder='Write your summary here'
+        id='summary'
+        placeholder='Summarize the passage'
         minRows='5'
         multiline={true}
         >

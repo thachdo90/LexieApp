@@ -53,7 +53,6 @@ module.exports = {
     console.log('updating student with work')
     console.log(req.body)
     try {
-      // find and update student work, if not, create
       res.sendStatus(201);
     } catch (err) {
       console.log(err);

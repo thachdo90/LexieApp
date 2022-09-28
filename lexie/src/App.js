@@ -11,7 +11,7 @@ const please = require('./requests.js');
 
 function App() {
   const [students, setStudents] = useState([]);
-  const [page, setPage] = useState('homepage');
+  const [page, setPage] = useState('login');
   const [assignments, setAssignments] = useState([]);
   const [user, setUser] = useState('');
   const [currentAssignment, setCurrentAssignment] = useState('');
@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-    {page === 'homepage' &&
+    {page === 'login' &&
       <div className="App">
         <h1>
           Lexie
@@ -56,7 +56,10 @@ function App() {
       </div>
     }
     {page === 'assignment-builder' &&
-      <AssignmentBuilder setPage={setPage} />
+      <AssignmentBuilder
+        setPage={setPage}
+        user={user}
+      />
     }
     {page === 'student-dashboard' &&
       <StudentDashboard

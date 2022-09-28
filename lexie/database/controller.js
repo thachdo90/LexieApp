@@ -65,16 +65,12 @@ module.exports = {
       let studentWorks = [];
       console.log('STUDENTS', students);
       for (let student of students) {
-        // this could potentially costs a lot of time
-        // Maybe there's a better to search subdocuments
-        let work = student.submittedWork.filter(work => (work.assignment_id).toString() === assignmentId);
-        work = work[0];
-        studentWorks.push({
-          name: student.name,
-          summary: work.summary,
-          glossary: work.glossary,
-          completed: work.completed
-        })
+        let work = await student.submittedWork.id(assignmentId);
+        // deep copy
+        let copy = JSON.parse(JSON.stringify(work));
+        copy.name = student.name
+        copy.studentId = student._id
+        studentWorks.push(copy);
       }
       res.send(studentWorks);
     } catch (err) {

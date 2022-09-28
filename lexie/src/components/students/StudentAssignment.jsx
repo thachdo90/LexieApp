@@ -34,12 +34,13 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
       let studentWork = {
       student_id: user,
       work: {
-        assignment_id: currentAssignment,
+        _id: currentAssignment,
         summary: summary,
         glossary: glossary,
         completed: true
         }
       }
+      console.log('SUBMITTING WORK', studentWork)
       please.submitWork(studentWork)
       .then(() => setPage('student-dashboard'))
       .catch(error => console.log(error))

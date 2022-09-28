@@ -87,8 +87,16 @@ module.exports = {
   // METHODS FOR STUDENTS
   studentSubmitWork: async (req, res) => {
     console.log('recording student work')
+    console.log(req.body);
+    let studentId = req.body.student_id;
+    let assignmentId = req.body.work._id;
+    let newWork = req.body.work;
     try {
-      // how to update subdocument
+      let student = await Student.findOne({_id: studentId});
+      let prevWork = await student.submittedWork.id(assignmentId);
+      Object.assign(prevWork, newWork);
+      await student.save();
+
       res.sendStatus(201);
     } catch (err) {
       console.log(err);

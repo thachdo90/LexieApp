@@ -2,8 +2,7 @@ import { Button, Card, Grid, CardMedia, CardContent } from '@mui/material';
 
 const randomImg = require('../../assets/randomImg.js')
 
-
-const TeacherDashboard = ({ setPage, assignments }) => {
+const TeacherDashboard = ({ setPage, assignments, setCurrentAssignment }) => {
   return (
     <>
       <h1>
@@ -20,7 +19,11 @@ const TeacherDashboard = ({ setPage, assignments }) => {
           item
           key={assignment._id}>
             <Card
-              raised={true}>
+              raised={true}
+              onClick={() => {
+                setPage('reports')
+                setCurrentAssignment(assignment._id)
+              }}>
                 <CardMedia
                 // later: get a list view
                   component='img'

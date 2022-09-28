@@ -6,6 +6,7 @@ import StudentDashboard from './components/students/StudentDashboard.jsx';
 import StudentAssignment from './components/students/StudentAssignment.jsx'
 import LogoutButton from './components/LogoutButton.jsx'
 import HomeButton from './components/HomeButton.jsx';
+import Reports from './components/teachers/Reports.jsx';
 
 const please = require('./requests.js');
 
@@ -57,12 +58,11 @@ const App = () => {
     {page === 'teacher-dashboard' &&
       <TeacherDashboard
       setPage={setPage}
-      assignments={assignments} />
+      assignments={assignments}
+      setCurrentAssignment={setCurrentAssignment} />
     }
     {page === 'reports' &&
-      <div>
-        Reports
-      </div>
+      <Reports currentAssignment={currentAssignment} />
     }
     {page === 'assignment-builder' &&
       <AssignmentBuilder

@@ -56,16 +56,16 @@ module.exports = {
       url: '/teachers/assignments',
       method: 'delete',
       baseURL: basePath,
-      params: {assignment_id: id}
+      params: {id: id}
     })
   },
 
   teacherGetReport: (id) => {
     return axios({
-      url: '/teachers/assignments/reports',
+      url: '/teachers/reports',
       method: 'get',
       baseURL: basePath,
-      params: {assignment_id: id}
+      params: {id: id}
     })
   },
 

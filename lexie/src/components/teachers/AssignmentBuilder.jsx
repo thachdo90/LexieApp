@@ -54,8 +54,8 @@ const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
         </Grid>
         <Grid item style={{width: 500, height: 1000}}>
           <Paper
-          elevation='4'
-          style={{padding: '20px'}}>
+            elevation='4'
+            style={{padding: '20px'}}>
             <h1>Full Glossary</h1>
             <Button
               variant='contained'

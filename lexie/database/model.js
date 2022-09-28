@@ -31,7 +31,11 @@ const submittedWorkSchema = mongoose.Schema({
 })
 
 const studentSchema = mongoose.Schema({
-  name: String,
+  name: {
+    type: String,
+    unique: true
+    // true only for demo, would use student ID
+  },
   submittedWork: [submittedWorkSchema]
 })
 

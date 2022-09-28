@@ -24,7 +24,7 @@ module.exports = {
   submitWork: (body) => {
     return axios({
       url: '/students/assignments',
-      method: 'post',
+      method: 'put',
       baseURL: basePath,
       data: body,
     })

@@ -18,7 +18,7 @@ app.route('/students')
 
 app.route('/students/assignments')
   .get(ctrl.studentGetAssignment)
-  .post(ctrl.studentSubmitWork)
+  .put(ctrl.studentSubmitWork)
 
 app.route('/teachers/assignments')
   .get(ctrl.teacherGetAssignment)

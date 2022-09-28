@@ -86,8 +86,9 @@ module.exports = {
 
   // METHODS FOR STUDENTS
   studentSubmitWork: async (req, res) => {
-    console.log('updating student with work')
+    console.log('recording student work')
     try {
+      // how to update subdocument
       res.sendStatus(201);
     } catch (err) {
       console.log(err);

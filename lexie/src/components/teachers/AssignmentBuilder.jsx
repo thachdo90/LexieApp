@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 const please = require('../../requests.js')
 const generateGlossary = require('./glossary.js');
 
-const AssignmentBuilder = ({ setPage, user }) => {
+const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
 
   const [glossary, setGlossary] = useState([]);
 
@@ -19,6 +19,8 @@ const AssignmentBuilder = ({ setPage, user }) => {
           title: title,
           glossary: glossary
         })
+      .then(() => please.teacherGetAssignment())
+      .then((data) => setAssignments(data.data))
       .then(() => setPage('teacher-dashboard'))
       // get assignment to see newly added entry
       .catch(error => console.log(error))

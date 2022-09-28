@@ -10,6 +10,8 @@ module.exports = {
     })
   },
 
+  // STUDENT REQUESTS
+
   studentGetAssignment: (id) => {
     return axios({
       url: '/students/assignments',
@@ -27,6 +29,8 @@ module.exports = {
       data: body,
     })
   },
+
+  // TEACHER REQUESTS
 
   teacherAddAssignment: (body) => {
     return axios({
@@ -51,6 +55,15 @@ module.exports = {
     return axios({
       url: '/teachers/assignments',
       method: 'delete',
+      baseURL: basePath,
+      params: {assignment_id: id}
+    })
+  },
+
+  teacherGetReport: (id) => {
+    return axios({
+      url: '/teachers/assignments/reports',
+      method: 'get',
       baseURL: basePath,
       params: {assignment_id: id}
     })

@@ -1,5 +1,3 @@
-import './App.css';
-// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import Homepage from './components/Homepage.jsx';
 import TeacherDashboard from './components/teachers/TeacherDashboard.jsx';
@@ -11,7 +9,7 @@ import HomeButton from './components/HomeButton.jsx';
 
 const please = require('./requests.js');
 
-function App() {
+const App = () => {
   const [students, setStudents] = useState([]);
   const [page, setPage] = useState('login');
   const [assignments, setAssignments] = useState([]);
@@ -70,6 +68,7 @@ function App() {
       <AssignmentBuilder
         setPage={setPage}
         user={user}
+        setAssignments={setAssignments}
       />
     }
     {page === 'student-dashboard' &&

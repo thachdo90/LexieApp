@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const { getStudents, teacherGetAssignment, teacherAddAssignment, teacherDeleteAssignment, studentSubmitWork, studentGetAssignment } = require('../database/controller.js');
+const ctrl = require('../database/controller.js');
 const cors = require('cors');
 
 const app = express();
@@ -14,16 +14,19 @@ app.use(morgan('dev'));
 
 // ROUTES
 app.route('/students')
-  .get(getStudents)
+  .get(ctrl.getStudents)
 
 app.route('/students/assignments')
-  .get(studentGetAssignment)
-  .post(studentSubmitWork)
+  .get(ctrl.studentGetAssignment)
+  .post(ctrl.studentSubmitWork)
 
 app.route('/teachers/assignments')
-  .get(teacherGetAssignment)
-  .post(teacherAddAssignment)
-  .delete(teacherDeleteAssignment)
+  .get(ctrl.teacherGetAssignment)
+  .post(ctrl.teacherAddAssignment)
+  .delete(ctrl.teacherDeleteAssignment)
+
+app.route('/teachers/reports')
+  .get(ctrl.teacherGetReport)
 
 // adding students is out of scope for the current phase of this project, we'll stick with the 4 manually created students
 

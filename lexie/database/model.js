@@ -17,14 +17,21 @@ const assignmentSchema = mongoose.Schema({
 const submittedWorkSchema = mongoose.Schema({
   assignment_id: {
     type: mongoose.Types.ObjectId,
+    unique: true,
     index: true
   },
   summary: {
     type: String,
-    default: 'Not yet completed'
+    default: ''
   },
-  glossary: Array,
-  completed: Boolean
+  glossary: {
+    type: Array,
+    default: []
+  },
+  completed: {
+    type: Boolean,
+    default: false
+  }
 })
 
 const studentSchema = mongoose.Schema({

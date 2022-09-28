@@ -33,7 +33,16 @@ module.exports = {
   // might need to transform data before returning
   teacherAddAssignment: async (req, res) => {
     try {
-      await Assignment.create(req.body);
+      let assignment = await Assignment.create(req.body);
+      let students = await Student.find({});
+      for (let student of students) {
+        try {
+          student.submittedWork.push({assignment_id: assignment._id})
+          await student.save();
+        } catch (error) {
+          console.log(error)
+        }
+      }
       res.sendStatus(201);
     } catch (err) {
       res.sendStatus(400);
@@ -43,15 +52,41 @@ module.exports = {
   teacherDeleteAssignment: async (req, res) => {
     try {
       Assignment.deleteOne({_id: req._id})
+      // also delete this from students?
     } catch (err) {
       res.sendStatus(404);
     }
   },
 
+  teacherGetReport: async (req, res) => {
+    let assignmentId = req.query.id;
+    try {
+      let students = await Student.find({});
+      let studentWorks = [];
+      console.log('STUDENTS', students);
+      for (let student of students) {
+        // this could potentially costs a lot of time
+        // Maybe there's a better to search subdocuments
+        let work = student.submittedWork.filter(work => (work.assignment_id).toString() === assignmentId);
+        work = work[0];
+        studentWorks.push({
+          name: student.name,
+          summary: work.summary,
+          glossary: work.glossary,
+          completed: work.completed
+        })
+      }
+      res.send(studentWorks);
+    } catch (err) {
+      res.sendStatus(404);
+    }
+  },
+
+
+
   // METHODS FOR STUDENTS
   studentSubmitWork: async (req, res) => {
     console.log('updating student with work')
-    console.log(req.body)
     try {
       res.sendStatus(201);
     } catch (err) {

@@ -58,8 +58,7 @@ const AssignmentBuilder = ({ setPage }) => {
             <h1>Full Glossary</h1>
             <Button
               variant='contained'
-              onClick={populateGlossary}
-              >
+              onClick={populateGlossary}>
               Generate Glossary
             </Button>
             <p>Students will be able to click and defined words in this list</p>

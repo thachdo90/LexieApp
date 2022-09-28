@@ -19,14 +19,23 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
   }, [currentAssignment])
 
   const addToGlossary = (word) => {
+    // later: create an object to track unique words
     if (!studentGlossary.includes(word)) {
-      setStudentGlossary([...studentGlossary, word]);
+      setStudentGlossary([word, ...studentGlossary]);
     }
+  }
+
+  const submitWork = () => {
+
   }
 
   return(
     <>
       <HomeButton setPage={setPage}/>
+      <Button
+        variant='contained'>
+        Submit
+      </Button>
       {Object.keys(assignmentIP).length > 0
       ?
       <>

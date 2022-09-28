@@ -1,0 +1,5 @@
+.searchable:hover {
+  color: #1417ba;
+  text-decoration: underline;
+  cursor: pointer;
+}

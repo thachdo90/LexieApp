@@ -15,11 +15,7 @@ const assignmentSchema = mongoose.Schema({
 })
 
 const submittedWorkSchema = mongoose.Schema({
-  assignment_id: {
-    type: mongoose.Types.ObjectId,
-    unique: true,
-    index: true
-  },
+  // _id will inherit assignment id
   summary: {
     type: String,
     default: ''

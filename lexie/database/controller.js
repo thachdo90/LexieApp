@@ -37,7 +37,7 @@ module.exports = {
       let students = await Student.find({});
       for (let student of students) {
         try {
-          student.submittedWork.push({assignment_id: assignment._id})
+          student.submittedWork.push({_id: assignment._id})
           await student.save();
         } catch (error) {
           console.log(error)

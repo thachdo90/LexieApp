@@ -20,6 +20,7 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
 
   const addToGlossary = (word) => {
     // later: create an object to track unique words
+    // bug: duplicate words are separate entities, this should be fixed by implementing an object to keep track
     if (!studentGlossary.includes(word)) {
       setStudentGlossary([word, ...studentGlossary]);
     }

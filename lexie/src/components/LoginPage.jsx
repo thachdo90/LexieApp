@@ -1,6 +1,6 @@
 import { Button, ButtonGroup } from '@mui/material';
 
-const Homepage = ({ students, setPage, setUser }) => {
+const LoginPage = ({ students, setPage, setUser }) => {
   return (
     <div>
       <Button
@@ -29,4 +29,4 @@ const Homepage = ({ students, setPage, setUser }) => {
   )
 }
 
-export default Homepage;
+export default LoginPage;

@@ -1,10 +1,26 @@
-import { Card, Grid, CardMedia, CardContent } from '@mui/material';
+import { Button, Modal, Card, Grid, CardMedia, CardContent } from '@mui/material';
+import FlashCards from './FlashCards.jsx';
+import React, { useState } from 'react';
 
 const randomImg = require('../../assets/randomImg.js')
 
 const StudentDashboard = ({ student, setPage, assignments, setCurrentAssignment }) => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
+      <Button
+        onClick={handleOpen}
+        variant='contained'>
+        FlashCards
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}>
+        <FlashCards />
+      </Modal>
       <h1>
         Hi {student.name}!
       </h1>

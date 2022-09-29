@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Homepage from './components/Homepage.jsx';
+import LoginPage from './components/LoginPage.jsx';
 import TeacherDashboard from './components/teachers/TeacherDashboard.jsx';
 import AssignmentBuilder from './components/teachers/AssignmentBuilder.jsx';
 import StudentDashboard from './components/students/StudentDashboard.jsx';
@@ -49,7 +49,7 @@ const App = () => {
             Lexie
           </h1>
           <h2>Select your role to begin!</h2>
-          <Homepage
+          <LoginPage
             students={students}
             setPage={setPage}
             setUser={setUser}/>

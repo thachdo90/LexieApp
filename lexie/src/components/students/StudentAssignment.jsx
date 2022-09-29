@@ -59,7 +59,7 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
             <Grid item >
               <Paper
               elevation='4'
-              style={{width: '500px', maxHeight: '500px', height: '500px', padding: '20px'}}>
+              style={{width: '500px', maxHeight: '580px', height: '580px', padding: '20px'}}>
                 <h1>{assignmentIP.title}</h1>
                 {assignmentIP.glossary.map(word => <span
                   key={word._id}

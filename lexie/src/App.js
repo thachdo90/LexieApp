@@ -34,58 +34,58 @@ const App = () => {
 
   return (
     <>
-    {page !== 'login' &&
-      <LogoutButton
-      setUser={setUser}
-      setPage={setPage}
-      />
-    }
-    {!['login', 'teacher-dashboard', 'student-dashboard'].includes(page) &&
-      <HomeButton user={user} setPage={setPage} />
-    }
-    {page === 'login' &&
-      <div className="App">
-        <h1>
-          Lexie
-        </h1>
-        <h2>Select your role to begin!</h2>
-        <Homepage
-          students={students}
-          setPage={setPage}
-          setUser={setUser}/>
-      </div>
-    }
-    {page === 'teacher-dashboard' &&
-      <TeacherDashboard
-      setPage={setPage}
-      assignments={assignments}
-      setCurrentAssignment={setCurrentAssignment} />
-    }
-    {page === 'reports' &&
-      <Reports currentAssignment={currentAssignment} />
-    }
-    {page === 'assignment-builder' &&
-      <AssignmentBuilder
+      {page !== 'login' &&
+        <LogoutButton
+        setUser={setUser}
         setPage={setPage}
-        user={user}
-        setAssignments={setAssignments}
-      />
-    }
-    {page === 'student-dashboard' &&
-      <StudentDashboard
+        />
+      }
+      {!['login', 'teacher-dashboard', 'student-dashboard'].includes(page) &&
+        <HomeButton user={user} setPage={setPage} />
+      }
+      {page === 'login' &&
+        <div className="App">
+          <h1>
+            Lexie
+          </h1>
+          <h2>Select your role to begin!</h2>
+          <Homepage
+            students={students}
+            setPage={setPage}
+            setUser={setUser}/>
+        </div>
+      }
+      {page === 'teacher-dashboard' &&
+        <TeacherDashboard
         setPage={setPage}
-        student={students.filter(student => student._id === user)[0]}
         assignments={assignments}
-        setCurrentAssignment={setCurrentAssignment}
-      />
-    }
-    {page === 'student-assignment' &&
-      <StudentAssignment
-        setPage={setPage}
-        user={user}
-        currentAssignment={currentAssignment}
-      />
-    }
+        setCurrentAssignment={setCurrentAssignment} />
+      }
+      {page === 'reports' &&
+        <Reports currentAssignment={currentAssignment} />
+      }
+      {page === 'assignment-builder' &&
+        <AssignmentBuilder
+          setPage={setPage}
+          user={user}
+          setAssignments={setAssignments}
+        />
+      }
+      {page === 'student-dashboard' &&
+        <StudentDashboard
+          setPage={setPage}
+          student={students.filter(student => student._id === user)[0]}
+          assignments={assignments}
+          setCurrentAssignment={setCurrentAssignment}
+        />
+      }
+      {page === 'student-assignment' &&
+        <StudentAssignment
+          setPage={setPage}
+          user={user}
+          currentAssignment={currentAssignment}
+        />
+      }
     </>
   );
 }

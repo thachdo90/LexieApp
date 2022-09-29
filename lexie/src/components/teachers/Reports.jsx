@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Paper } from '@mui/material';
+import BarGraph from './BarGraph.jsx';
 
 const please = require('../../requests.js');
 
@@ -13,6 +14,7 @@ const Reports = ({ currentAssignment }) => {
         setReport(data.data)})
       .catch(error => console.log(error))
   }, [currentAssignment])
+
   return (
     <>
       {report.length > 0
@@ -21,7 +23,9 @@ const Reports = ({ currentAssignment }) => {
         <Grid
           item
           style={{width: 500, height:1000}}>
-          Charts
+          <Paper>
+            <BarGraph report={report} />
+          </Paper>
         </Grid>
         <Grid
           item>

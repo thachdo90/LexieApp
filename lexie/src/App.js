@@ -7,7 +7,7 @@ import StudentDashboard from './components/students/StudentDashboard.jsx';
 import StudentAssignment from './components/students/StudentAssignment.jsx'
 import LogoutButton from './components/LogoutButton.jsx'
 import HomeButton from './components/HomeButton.jsx';
-import Reports from './components/teachers/Reports.jsx';
+import Reports from './components/teachers/Reports/Reports.jsx';
 import { Container, Grid } from '@mui/material';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { orange } from '@mui/material/colors';
@@ -93,7 +93,13 @@ const App = () => {
               </Grid>
             }
             {page === 'reports' &&
-              <Reports currentAssignment={currentAssignment} />
+              <Grid
+                container
+                direction='column'
+                justifyContent='center'
+                alignItems='center'>
+                <Reports currentAssignment={currentAssignment} />
+              </Grid>
             }
             {page === 'assignment-builder' &&
               <AssignmentBuilder

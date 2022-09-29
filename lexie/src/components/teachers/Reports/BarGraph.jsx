@@ -59,8 +59,8 @@ const BarGraph = ({ report }) => {
       {
         label: 'count',
         data: count,
-        borderColor: 'hsl(185,83%,35%)',
-        backgroundColor: 'hsl(185,83%,35%)'
+        borderColor: 'hsl(210,79%,46%)',
+        backgroundColor: 'hsl(210,79%,46%)'
       }
     ]
   }

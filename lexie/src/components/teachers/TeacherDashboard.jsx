@@ -5,16 +5,32 @@ const randomImg = require('../../assets/randomImg.js')
 const TeacherDashboard = ({ setPage, assignments, setCurrentAssignment }) => {
   return (
     <>
-      <h1>
-        Teacher Dashboard
-      </h1>
+      <Grid item>
+        <h1 style={{fontSize: '40px'}}>Teacher Dashboard</h1>
+      </Grid>
+      <Grid item>
+        <Button
+          onClick={() => setPage('assignment-builder')}
+          variant='contained'
+          color='primary'>
+          Create Assignment
+        </Button>
+      </Grid>
       {assignments.length > 0
       ?
-      <>
-        <h3>Select a card below to see the report</h3>
-        <Grid
+      <Grid
+        item
         container
-        spacing='10'>
+        direction='column'
+        alignItems='center'>
+        <Grid item>
+          <h3>Select a card below to see the report</h3>
+        </Grid>
+        <Grid
+        item
+        container
+        spacing='10'
+        justifyContent='center'>
         { assignments.map(assignment => <Grid
           item
           key={assignment._id}>
@@ -40,15 +56,10 @@ const TeacherDashboard = ({ setPage, assignments, setCurrentAssignment }) => {
             </Card>
           </Grid>)}
         </Grid>
-      </>
+      </Grid>
       :
-      <div>Try creating your first assignment!</div>
+      <Grid item>Try creating your first assignment!</Grid>
       }
-      <Button
-        onClick={() => setPage('assignment-builder')}
-        variant='contained'
-        color='primary'>
-        Create Assignment</Button>
     </>
   )
 }

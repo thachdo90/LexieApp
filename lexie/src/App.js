@@ -66,25 +66,31 @@ const App = () => {
                 </Grid>
               }
             </Grid>
-            <Grid
-              item
-              container
-              justifyContent='center'
-              alignItems='center'
-              spacing='10px'
-              style={{marginTop:'15%'}}>
-              {page === 'login' &&
-                <LoginPage
-                  students={students}
-                  setPage={setPage}
-                  setUser={setUser}/>
-              }
-            </Grid>
+            {page === 'login' &&
+              <Grid
+                item
+                container
+                justifyContent='center'
+                alignItems='center'
+                spacing='10px'
+                style={{marginTop:'15%'}}>
+                  <LoginPage
+                    students={students}
+                    setPage={setPage}
+                    setUser={setUser}/>
+              </Grid>
+            }
             {page === 'teacher-dashboard' &&
-              <TeacherDashboard
-              setPage={setPage}
-              assignments={assignments}
-              setCurrentAssignment={setCurrentAssignment} />
+              <Grid
+                container
+                direction='column'
+                justifyContent='center'
+                alignItems='center'>
+                <TeacherDashboard
+                setPage={setPage}
+                assignments={assignments}
+                setCurrentAssignment={setCurrentAssignment} />
+              </Grid>
             }
             {page === 'reports' &&
               <Reports currentAssignment={currentAssignment} />

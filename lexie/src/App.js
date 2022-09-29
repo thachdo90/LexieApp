@@ -129,11 +129,17 @@ const App = () => {
               </Grid>
             }
             {page === 'student-assignment' &&
-              <StudentAssignment
-                setPage={setPage}
-                user={user}
-                currentAssignment={currentAssignment}
-              />
+              <Grid
+              container
+              direction='column'
+              justifyContent='center'
+              alignItems='center'>
+                <StudentAssignment
+                  setPage={setPage}
+                  user={user}
+                  currentAssignment={currentAssignment}
+                />
+              </Grid>
             }
           </Grid>
         </div>

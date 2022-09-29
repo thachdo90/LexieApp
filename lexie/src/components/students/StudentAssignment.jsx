@@ -51,44 +51,50 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
 
   return(
     <>
-      <Button
+      {Object.keys(assignmentIP).length > 0
+      ?
+      <>
+        <Grid container spacing='20'>
+          <Grid item container spacing='20'>
+            <Grid item >
+              <Paper
+              elevation='4'
+              style={{width: '500px', maxHeight: '500px', height: '500px', padding: '20px'}}>
+                <h1>{assignmentIP.title}</h1>
+                {assignmentIP.glossary.map(word => <span
+                  key={word._id}
+                  onClick={word.definition ? () => {addToGlossary(word)} : null}
+                  className={word.definition ? 'searchable' : null}>
+                  {word.word} </span>)}
+              </Paper>
+            </Grid>
+            <Grid item>
+              <Paper
+              elevation='4'
+              style={{padding: '20px'}}>
+                <h1>My Glossary</h1>
+                <div style={{width: '500px', height: '500px', maxHeight: '500px', overflowY: 'scroll'}}>
+                  {studentGlossary.map(word => <p>{word.word}: {word.definition}</p>)}
+                </div>
+              </Paper>
+            </Grid>
+          </Grid>
+          </Grid>
+        <Grid item style={{width: '80%', margin:'20px'}}>
+          <TextField
+          fullWidth={true}
+          id='summary'
+          placeholder='Summarize the passage'
+          minRows='5'
+          multiline={true}
+          >
+          </TextField>
+        </Grid>
+        <Button
         variant='contained'
         onClick={submitWork}>
         Submit
       </Button>
-      {Object.keys(assignmentIP).length > 0
-      ?
-      <>
-        <Grid container>
-          <Grid item style={{width: 500, height: 700}}>
-            <Paper
-            elevation='4'
-            style={{padding: '20px'}}>
-              <h1>{assignmentIP.title}</h1>
-              {assignmentIP.glossary.map(word => <span
-                key={word._id}
-                onClick={word.definition ? () => {addToGlossary(word)} : null}
-                className={word.definition ? 'searchable' : null}>
-                {word.word} </span>)}
-            </Paper>
-          </Grid>
-          <Grid item style={{width: 500, height: 700}}>
-            <Paper
-            elevation='4'
-            style={{padding: '20px'}}>
-              <h1>My Glossary</h1>
-              {studentGlossary.map(word => <p>{word.word}: {word.definition}</p>)}
-            </Paper>
-          </Grid>
-        </Grid>
-        <TextField
-        fullWidth={true}
-        id='summary'
-        placeholder='Summarize the passage'
-        minRows='5'
-        multiline={true}
-        >
-        </TextField>
       </>
       :
       <div>Uh oh, this assignment doesn't exist</div>}

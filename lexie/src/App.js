@@ -102,11 +102,17 @@ const App = () => {
               </Grid>
             }
             {page === 'assignment-builder' &&
-              <AssignmentBuilder
-                setPage={setPage}
-                user={user}
-                setAssignments={setAssignments}
-              />
+              <Grid
+                container
+                direction='column'
+                justifyContent='center'
+                alignItems='center'>
+                <AssignmentBuilder
+                  setPage={setPage}
+                  user={user}
+                  setAssignments={setAssignments}
+                />
+              </Grid>
             }
             {page === 'student-dashboard' &&
               <StudentDashboard

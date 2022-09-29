@@ -42,14 +42,11 @@ const FlashCards = () => {
       </div>
       <Card>
         <CardContent>
-          <h3>
-            {currentCard.card.word}
-          </h3>
+          <h1>
+            <span onClick={() => showDef()}><ImportContacts fontSize='large' /></span>   {currentCard.card.word}
+          </h1>
         </CardContent>
       </Card>
-      <div onClick={() => showDef()}>
-        <ImportContacts fontSize='large' />
-      </div>
      { showDefinition &&
         <Card>
           {currentCard.card.definition}

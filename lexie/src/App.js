@@ -1,3 +1,4 @@
+import './App.css'
 import React, { useState, useEffect } from 'react';
 import LoginPage from './components/LoginPage.jsx';
 import TeacherDashboard from './components/teachers/TeacherDashboard.jsx';
@@ -7,8 +8,14 @@ import StudentAssignment from './components/students/StudentAssignment.jsx'
 import LogoutButton from './components/LogoutButton.jsx'
 import HomeButton from './components/HomeButton.jsx';
 import Reports from './components/teachers/Reports.jsx';
+import { Container, Grid } from '@mui/material';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
+import { orange } from '@mui/material/colors';
 
 const please = require('./requests.js');
+const theme = createTheme({
+
+})
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -33,60 +40,81 @@ const App = () => {
 
 
   return (
-    <>
-      {page !== 'login' &&
-        <LogoutButton
-        setUser={setUser}
-        setPage={setPage}
-        />
-      }
-      {!['login', 'teacher-dashboard', 'student-dashboard'].includes(page) &&
-        <HomeButton user={user} setPage={setPage} />
-      }
-      {page === 'login' &&
-        <div className="App">
-          <h1>
-            Lexie
-          </h1>
-          <h2>Select your role to begin!</h2>
-          <LoginPage
-            students={students}
-            setPage={setPage}
-            setUser={setUser}/>
+    <ThemeProvider theme={theme}>
+      <Container maxWidth='lg'>
+        <div className='app'>
+          <Grid
+          container
+          direction='column'
+          justifyContent='center'
+          alignItems='center'>
+            <Grid
+              item
+              container
+              justifyContent='flex-end'>
+              {page !== 'login' &&
+                <Grid item>
+                  <LogoutButton
+                  setUser={setUser}
+                  setPage={setPage}
+                  />
+                </Grid>
+              }
+              {!['login', 'teacher-dashboard', 'student-dashboard'].includes(page) &&
+                <Grid item>
+                  <HomeButton user={user} setPage={setPage} />
+                </Grid>
+              }
+            </Grid>
+            <Grid
+              item
+              container
+              justifyContent='center'
+              alignItems='center'
+              spacing='10px'
+              style={{marginTop:'15%'}}>
+              {page === 'login' &&
+                <LoginPage
+                  students={students}
+                  setPage={setPage}
+                  setUser={setUser}/>
+              }
+            </Grid>
+            {page === 'teacher-dashboard' &&
+              <TeacherDashboard
+              setPage={setPage}
+              assignments={assignments}
+              setCurrentAssignment={setCurrentAssignment} />
+            }
+            {page === 'reports' &&
+              <Reports currentAssignment={currentAssignment} />
+            }
+            {page === 'assignment-builder' &&
+              <AssignmentBuilder
+                setPage={setPage}
+                user={user}
+                setAssignments={setAssignments}
+              />
+            }
+            {page === 'student-dashboard' &&
+              <StudentDashboard
+                setPage={setPage}
+                student={students.filter(student => student._id === user)[0]}
+                assignments={assignments}
+                setCurrentAssignment={setCurrentAssignment}
+              />
+            }
+            {page === 'student-assignment' &&
+              <StudentAssignment
+                setPage={setPage}
+                user={user}
+                currentAssignment={currentAssignment}
+              />
+            }
+          </Grid>
         </div>
-      }
-      {page === 'teacher-dashboard' &&
-        <TeacherDashboard
-        setPage={setPage}
-        assignments={assignments}
-        setCurrentAssignment={setCurrentAssignment} />
-      }
-      {page === 'reports' &&
-        <Reports currentAssignment={currentAssignment} />
-      }
-      {page === 'assignment-builder' &&
-        <AssignmentBuilder
-          setPage={setPage}
-          user={user}
-          setAssignments={setAssignments}
-        />
-      }
-      {page === 'student-dashboard' &&
-        <StudentDashboard
-          setPage={setPage}
-          student={students.filter(student => student._id === user)[0]}
-          assignments={assignments}
-          setCurrentAssignment={setCurrentAssignment}
-        />
-      }
-      {page === 'student-assignment' &&
-        <StudentAssignment
-          setPage={setPage}
-          user={user}
-          currentAssignment={currentAssignment}
-        />
-      }
-    </>
+      </Container>
+    </ThemeProvider>
   );
 }
 

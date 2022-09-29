@@ -115,12 +115,18 @@ const App = () => {
               </Grid>
             }
             {page === 'student-dashboard' &&
-              <StudentDashboard
-                setPage={setPage}
-                student={students.filter(student => student._id === user)[0]}
-                assignments={assignments}
-                setCurrentAssignment={setCurrentAssignment}
-              />
+              <Grid
+              container
+              direction='column'
+              justifyContent='center'
+              alignItems='center'>
+                <StudentDashboard
+                  setPage={setPage}
+                  student={students.filter(student => student._id === user)[0]}
+                  assignments={assignments}
+                  setCurrentAssignment={setCurrentAssignment}
+                />
+              </Grid>
             }
             {page === 'student-assignment' &&
               <StudentAssignment

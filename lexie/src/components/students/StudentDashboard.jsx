@@ -11,11 +11,6 @@ const StudentDashboard = ({ student, setPage, assignments, setCurrentAssignment 
 
   return (
     <>
-      <Button
-        onClick={handleOpen}
-        variant='contained'>
-        FlashCards
-      </Button>
       <Modal
         open={open}
         onClose={handleClose}>
@@ -24,14 +19,21 @@ const StudentDashboard = ({ student, setPage, assignments, setCurrentAssignment 
       <h1>
         Hi {student.name}!
       </h1>
+      <Button
+        onClick={handleOpen}
+        variant='contained'>
+        FlashCards
+      </Button>
       <h3>
         Select an assignment below to get started!
       </h3>
       {assignments.length > 0
       ?
       <Grid
+      item
       container
-      spacing='10'>
+      spacing='10'
+      justifyContent='center'>
        { assignments.map(assignment => <Grid item>
           <Card
             // make card respond to hover

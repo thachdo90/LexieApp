@@ -1,40 +1,5 @@
 let words = [
   {
-      "word": "Marie",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f491749b"
-  },
-  {
-      "word": "Curie",
-      "definition": "3.7×1010 decays per second, as a unit of radioactivity. Symbol Ci.",
-      "_id": "6334a16c1ef53fa3f491749c"
-  },
-  {
-      "word": "was",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f491749d"
-  },
-  {
-      "word": "one",
-      "definition": "The digit or figure 1.",
-      "_id": "6334a16c1ef53fa3f491749e"
-  },
-  {
-      "word": "of",
-      "definition": "Expressing distance or motion.",
-      "_id": "6334a16c1ef53fa3f491749f"
-  },
-  {
-      "word": "the",
-      "definition": "With a comparative or with more and a verb phrase, establishes a correlation with one or more other such comparatives.",
-      "_id": "6334a16c1ef53fa3f49174a0"
-  },
-  {
-      "word": "most",
-      "definition": "The greatest amount.",
-      "_id": "6334a16c1ef53fa3f49174a1"
-  },
-  {
       "word": "accomplished",
       "definition": "To finish successfully.",
       "_id": "6334a16c1ef53fa3f49174a2"
@@ -45,59 +10,14 @@ let words = [
       "_id": "6334a16c1ef53fa3f49174a3"
   },
   {
-      "word": "in",
-      "definition": "A position of power or influence, or a way to get it.",
-      "_id": "6334a16c1ef53fa3f49174a4"
-  },
-  {
       "word": "history.",
       "definition": null,
       "_id": "6334a16c1ef53fa3f49174a5"
   },
   {
-      "word": "Together",
-      "definition": "Coherent; well organized.",
-      "_id": "6334a16c1ef53fa3f49174a6"
-  },
-  {
-      "word": "with",
-      "definition": "Along, together with others, in a group, etc.",
-      "_id": "6334a16c1ef53fa3f49174a7"
-  },
-  {
-      "word": "her",
-      "definition": "A female person or animal.",
-      "_id": "6334a16c1ef53fa3f49174a8"
-  },
-  {
-      "word": "husband,",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f49174a9"
-  },
-  {
-      "word": "Pierre,",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f49174aa"
-  },
-  {
-      "word": "she",
-      "definition": "A female.",
-      "_id": "6334a16c1ef53fa3f49174ab"
-  },
-  {
       "word": "discovered",
       "definition": "To find or learn something for the first time.",
       "_id": "6334a16c1ef53fa3f49174ac"
-  },
-  {
-      "word": "radium,",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f49174ad"
-  },
-  {
-      "word": "an",
-      "definition": "One",
-      "_id": "6334a16c1ef53fa3f49174ae"
   },
   {
       "word": "element",
@@ -110,16 +30,6 @@ let words = [
       "_id": "6334a16c1ef53fa3f49174b0"
   },
   {
-      "word": "used",
-      "definition": "To utilize or employ.",
-      "_id": "6334a16c1ef53fa3f49174b1"
-  },
-  {
-      "word": "for",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f49174b2"
-  },
-  {
       "word": "treating",
       "definition": "To negotiate, discuss terms, bargain (for or with).",
       "_id": "6334a16c1ef53fa3f49174b3"
@@ -130,11 +40,6 @@ let words = [
       "_id": "6334a16c1ef53fa3f49174b4"
   },
   {
-      "word": "and",
-      "definition": "In rhythm, the second half of a divided beat.",
-      "_id": "6334a16c1ef53fa3f49174b5"
-  },
-  {
       "word": "studied",
       "definition": "Practiced; self-conscious; careful.",
       "_id": "6334a16c1ef53fa3f49174b6"
@@ -143,41 +48,6 @@ let words = [
       "word": "uranium",
       "definition": "The element with atomic number 92 and symbol U: a radioactive silvery-grey metal in the actinide series.",
       "_id": "6334a16c1ef53fa3f49174b7"
-  },
-  {
-      "word": "and",
-      "definition": "In rhythm, the second half of a divided beat.",
-      "_id": "6334a16c1ef53fa3f49174b8"
-  },
-  {
-      "word": "other",
-      "definition": "An other, another (person, etc), more often rendered as another.",
-      "_id": "6334a16c1ef53fa3f49174b9"
-  },
-  {
-      "word": "radioactive",
-      "definition": "Any radioactive substance.",
-      "_id": "6334a16c1ef53fa3f49174ba"
-  },
-  {
-      "word": "substances.",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f49174bb"
-  },
-  {
-      "word": "Pierre",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f49174bc"
-  },
-  {
-      "word": "and",
-      "definition": "In rhythm, the second half of a divided beat.",
-      "_id": "6334a16c1ef53fa3f49174bd"
-  },
-  {
-      "word": "Marie’s",
-      "definition": null,
-      "_id": "6334a16c1ef53fa3f49174be"
   },
   {
       "word": "amicable",

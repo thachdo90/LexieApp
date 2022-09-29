@@ -53,7 +53,7 @@ const App = () => {
               container
               justifyContent='flex-end'>
               {page !== 'login' &&
-                <Grid item>
+                <Grid item style={{margin: '4px'}}>
                   <LogoutButton
                   setUser={setUser}
                   setPage={setPage}
@@ -61,7 +61,7 @@ const App = () => {
                 </Grid>
               }
               {!['login', 'teacher-dashboard', 'student-dashboard'].includes(page) &&
-                <Grid item>
+                <Grid item style={{margin: '4px'}}>
                   <HomeButton user={user} setPage={setPage} />
                 </Grid>
               }

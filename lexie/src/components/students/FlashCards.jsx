@@ -34,23 +34,37 @@ const FlashCards = () => {
   return (
     <Box
     sx={style}>
-      <div onClick={() => prevCard()}>
-        <ArrowBackIos />
-      </div>
-      <div onClick={() => nextCard()}>
-        <ArrowForwardIos />
-      </div>
-      <Card>
-        <CardContent>
-          <h1>
-            <span onClick={() => showDef()}><ImportContacts fontSize='large' /></span>   {currentCard.card.word}
-          </h1>
-        </CardContent>
-      </Card>
-     { showDefinition &&
-        <Card>
-          {currentCard.card.definition}
-        </Card>}
+      <Grid
+        container
+        direction='column'
+        justifyContent='flex-start'
+        alignItems='center'>
+        <Grid item style={{width:'100%'}} textAlign='center'>
+          <Card style={{backgroundColor: 'hsl(210,79%,46%)', color: 'white', fontSize: '40px'}}>
+            <CardContent>
+              <span>{currentCard.card.word}</span>
+            </CardContent>
+          </Card>
+        </Grid>
+        <Grid
+          item
+          container
+          justifyContent='center'
+          style={{margin: '10px', color: '#4F4F4F'}}>
+          <div onClick={() => prevCard()}>
+            <ArrowBackIos fontSize='large' />
+          </div>
+          <span onClick={() => showDef()}><ImportContacts fontSize='large' />
+          </span>
+          <div onClick={() => nextCard()}>
+            <ArrowForwardIos fontSize='large' />
+          </div>
+        </Grid>
+      { showDefinition &&
+          <p>
+            {currentCard.card.definition}
+          </p>}
+      </Grid>
     </Box>
   )
 

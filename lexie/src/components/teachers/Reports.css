@@ -1,0 +1,8 @@
+.active {
+  font-weight: bold;
+}
+
+.hover:hover {
+  cursor: pointer;
+  font-weight: bold;
+}

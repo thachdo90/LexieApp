@@ -11,8 +11,7 @@ const LoginPage = ({ students, setPage, setUser }) => {
         alignItems='center'>
         <h1 style={{fontSize: '100px'}}>Lexie</h1>
         <h2>Select your role to begin!</h2>
-      </Grid>
-      <Grid item>
+      <Grid item style={{margin: '20px'}}>
         <Button
           onClick={() => {
             setUser('teacher');
@@ -24,6 +23,7 @@ const LoginPage = ({ students, setPage, setUser }) => {
         </Button>
       </Grid>
       <Grid
+        style={{width: '60%'}}
         item
         container
         spacing='10px'
@@ -44,6 +44,7 @@ const LoginPage = ({ students, setPage, setUser }) => {
         </Button>
         </Grid>
         )}
+      </Grid>
       </Grid>
     </>
   )

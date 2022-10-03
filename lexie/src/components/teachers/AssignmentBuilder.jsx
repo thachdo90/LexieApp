@@ -85,8 +85,10 @@ const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
             {glossary.length > 0 &&
               <>
                 <h1 style={{textAlign: 'center'}}>Full Glossary</h1>
-                <p>Students will be able to click and defined words in this list</p>
-                {glossary.map(word => word.definition ? <p>{word.word}: {word.definition}</p> : null)}
+                <div style={{height: '496px', overflowY: 'scroll'}}>
+                  <p>Students will be able to click and defined words in this list</p>
+                  {glossary.map(word => word.definition ? <p>{word.word}: {word.definition}</p> : null)}
+                </div>
               </>
             }
           </Paper>

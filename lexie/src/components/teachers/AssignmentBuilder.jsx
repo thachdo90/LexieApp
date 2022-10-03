@@ -1,5 +1,6 @@
 import { Button, TextField, Grid, Paper, Input } from '@mui/material';
 import React, { useState } from 'react';
+import bookLoading from '../../assets/bookLoading.gif'
 
 const please = require('../../requests.js')
 const generateGlossary = require('./glossary.js');
@@ -7,6 +8,7 @@ const generateGlossary = require('./glossary.js');
 const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
 
   const [glossary, setGlossary] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
     // do some form validation first
@@ -28,10 +30,13 @@ const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
 
   }
 
-  const populateGlossary = async () => {
+  const populateGlossary = () => {
+    setLoading(true);
     let text = document.getElementById('text-field').value;
-    let words = await generateGlossary(text);
-    setGlossary(words);
+    generateGlossary(text, (glossary) => {
+      setGlossary(glossary);
+      setLoading(false);
+    });
   }
 
   return (
@@ -61,7 +66,7 @@ const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
           <Paper
             elevation='4'
             style={{padding: '20px'}}>
-            <Grid container>
+            <Grid container justifyContent='center'>
               <Button
                 variant='contained'
                 onClick={populateGlossary}
@@ -75,9 +80,17 @@ const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
                 Publish
               </Button>
             </Grid>
-            <h1>Full Glossary</h1>
-            <p>Students will be able to click and defined words in this list</p>
-            {glossary.map(word => word.definition ? <p>{word.word}: {word.definition}</p> : null)}
+              {loading && <img src={bookLoading} alt='book loading icon' style={{width: '100%', marginTop: '20px'}}
+              />}
+            {glossary.length > 0 &&
+              <>
+                <h1 style={{textAlign: 'center'}}>Full Glossary</h1>
+                <div style={{height: '496px', overflowY: 'scroll'}}>
+                  <p>Students will be able to click and defined words in this list</p>
+                  {glossary.map(word => word.definition ? <p>{word.word}: {word.definition}</p> : null)}
+                </div>
+              </>
+            }
           </Paper>
         </Grid>
       </Grid>

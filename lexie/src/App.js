@@ -11,6 +11,7 @@ import Reports from './components/teachers/Reports/Reports.jsx';
 import { Container, Grid } from '@mui/material';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import { orange } from '@mui/material/colors';
+import bookOutline from './assets/bookOutline.webp';
 
 const please = require('./requests.js');
 const theme = createTheme({

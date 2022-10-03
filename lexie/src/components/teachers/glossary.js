@@ -1,33 +1,26 @@
 const please = require('../../requests.js');
 
-// for testing purpose, delete after
-// const generateGlossary = (text) => {
-//   let words = text.split(' ');
-//   let glossary = []
-
-//   for (let word of words) {
-//     glossary.push({name: word, definition: 'definition'})
-//   }
-//   return glossary;
-// }
-
-const generateGlossary = async (text) => {
+const generateGlossary = (text, cb) => {
   let words = text.split(' ');
-  let glossary = []
+  let glossary;
+  let wordPromises = [];
 
-  for (let word of words) {
+  const lookup = async(word) => {
     try {
-      let data = await please.getDefinition(word);
-      // for now, just grab the first definition
-      // comeback and fix cases where puncutations before or after the word returns 404
-      // get rid of repetition
-      // this currently takes very long to process a short passage, time should improve by filtering out common words, duplicates, even then, the
-      glossary.push({word: word, definition: data.data[0].meanings[0].definitions[0].definition})
-    } catch (err) {
-      glossary.push({word: word, definition: null})
+      const data = await please.getDefinition(word);
+      return {word: word, definition: data.data[0].meanings[0].definitions[0].definition};
+    } catch (error) {
+      return {word: word, definition: null};
     }
   }
-  return glossary;
+
+  for (let word of words) {
+    wordPromises.push(lookup(word))
+  }
+
+  Promise.all(wordPromises)
+    .then(values => cb(values))
+    .catch(err => console.log(err))
 }
 
 

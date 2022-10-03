@@ -28,10 +28,11 @@ const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
 
   }
 
-  const populateGlossary = async () => {
+  const populateGlossary = () => {
     let text = document.getElementById('text-field').value;
-    let words = await generateGlossary(text);
-    setGlossary(words);
+    generateGlossary(text, (glossary) => {
+      console.log('updating glossary state')
+      setGlossary(glossary)});
   }
 
   return (
@@ -75,9 +76,13 @@ const AssignmentBuilder = ({ setPage, user, setAssignments }) => {
                 Publish
               </Button>
             </Grid>
-            <h1>Full Glossary</h1>
-            <p>Students will be able to click and defined words in this list</p>
-            {glossary.map(word => word.definition ? <p>{word.word}: {word.definition}</p> : null)}
+            {glossary &&
+              <>
+                <h1>Full Glossary</h1>
+                <p>Students will be able to click and defined words in this list</p>
+                {glossary.map(word => word.definition ? <p>{word.word}: {word.definition}</p> : null)}
+              </>
+            }
           </Paper>
         </Grid>
       </Grid>

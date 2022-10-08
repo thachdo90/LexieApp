@@ -27,7 +27,6 @@ const BarGraph = ({ report }) => {
     }
   }
   wordFrequency = Object.entries(wordFrequency).sort((a, b) => b[1] - a[1]);
-  console.log(wordFrequency)
 
   let words = [];
   let count = [];

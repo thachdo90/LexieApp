@@ -9,9 +9,7 @@ import LogoutButton from './components/LogoutButton.jsx'
 import HomeButton from './components/HomeButton.jsx';
 import Reports from './components/teachers/Reports/Reports.jsx';
 import { Container, Grid } from '@mui/material';
-import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
-import { orange } from '@mui/material/colors';
-import bookOutline from './assets/bookOutline.webp';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const please = require('./requests.js');
 const theme = createTheme({

@@ -33,13 +33,12 @@ const LoginPage = ({ students, setPage, setUser }) => {
         container
         spacing='10px'
         justifyContent='center'>
-        {students.map(student => <Grid item>
+        {students.map(student => <Grid item key={student._id} >
         <Button
           variant="contained"
           color="secondary"
           spacing='10px'
           style={{width: '100px'}}
-          key={student._id}
           student={student}
           onClick={() => {
             setUser(student._id)

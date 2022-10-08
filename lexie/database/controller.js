@@ -63,7 +63,6 @@ module.exports = {
     try {
       let students = await Student.find({});
       let studentWorks = [];
-      console.log('STUDENTS', students);
       for (let student of students) {
         let work = await student.submittedWork.id(assignmentId);
         // deep copy
@@ -82,8 +81,6 @@ module.exports = {
 
   // METHODS FOR STUDENTS
   studentSubmitWork: async (req, res) => {
-    console.log('recording student work')
-    console.log(req.body);
     let studentId = req.body.student_id;
     let assignmentId = req.body.work._id;
     let newWork = req.body.work;
@@ -101,7 +98,6 @@ module.exports = {
   },
 
   studentGetAssignment: async (req, res) => {
-    console.log('getting assignment for student view');
     try {
       let result = await Assignment.findOne({_id: req.query._id})
       res.send(result);

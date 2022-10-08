@@ -2,7 +2,6 @@ const please = require('../../requests.js');
 
 const generateGlossary = (text, cb) => {
   let words = text.split(' ');
-  let glossary;
   let wordPromises = [];
 
   const lookup = async(word) => {
@@ -26,6 +25,7 @@ const generateGlossary = (text, cb) => {
 
 module.exports = generateGlossary;
 
+// further refine this function
 // parse out words, becareful of contractions
 // split by spaces
 // trim any surrounding punctuations

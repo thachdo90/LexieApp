@@ -14,7 +14,6 @@ const Reports = ({ currentAssignment }) => {
   useEffect(() => {
     please.teacherGetReport(currentAssignment)
       .then(data => {
-        console.log(data.data)
         setReport(data.data)})
       .catch(error => console.log(error))
   }, [currentAssignment])

@@ -12,7 +12,6 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
     // currently redundant, needed later when app won't be able to get glossary field
     please.studentGetAssignment(currentAssignment)
     .then((data) => {
-      console.log(data.data)
       setAssignmentIP(data.data)})
     .catch(err => console.log(err))
   }, [currentAssignment])
@@ -40,7 +39,6 @@ const StudentAssignment = ({ setPage, user, currentAssignment }) => {
         completed: true
         }
       }
-      console.log('SUBMITTING WORK', studentWork)
       please.submitWork(studentWork)
       .then(() => setPage('student-dashboard'))
       .catch(error => console.log(error))

@@ -24,7 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "server-dev": "server/index.js",
+    "server-dev": "node ./server/index.js",
+    "seed-data": "node ./sampleData/sampledata.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

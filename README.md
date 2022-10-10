@@ -67,6 +67,30 @@ Students do this by:
 
 <a name="getting-started"></a>
 ### 4. Getting Started
+1. Cd into the directory where you want to save this project. Clone this respository.
+```
+git clone https://github.com/thachdo90/LexieApp.git
+```
+2. Cd into lexi
+```
+cd LexieApp/lexie
+```
+3. Install dependencies
+```
+npm install
+```
+4. Run the script to start the server
+```
+npm run server-dev
+```
+5. OPTIONAL. In a separate terminal, run the script to add sample students
+```
+npm run seed-data
+```
+6. Run the script to start the client
+```
+npm start
+```
 
 <a name="features-in-progress"></a>
 ### 5. Features in progress
